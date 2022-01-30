@@ -1,0 +1,12 @@
+# Setup script
+
+Kanged [Akhilnarang's Script](https://github.com/akhilnarang/scripts/) that i use to prepare AOSP Building server
+
+## How to use
+```
+$ sudo apt update
+$ sudo apt install git
+$ git clone https://github.com/herobuxx/setup
+$ cd setup
+$ bash setup.sh
+```
