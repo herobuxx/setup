@@ -13,6 +13,12 @@ DEBIAN_10_PACKAGES="libncurses5 curl"
 DEBIAN_11_PACKAGES="libncurses5 curl"
 PACKAGES=""
 
+# Install curl and GNUPG first
+echo "Installing curl and GNUPG"
+sudo apt update
+sudo apt install curl gnupg1 gnupg2 -y
+
+# Prepare for Jenkins installation
 echo "Adding Jenkins apt key and repository!"
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
