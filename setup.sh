@@ -4,8 +4,10 @@
 # Copyright (C) 2018 Akhil Narang
 # SPDX-License-Identifier: GPL-3.0-only
 
-# Script to setup an AOSP Build environment on Ubuntu and Linux Mint
+echo -e "* Install Jenkins? [y/n]"
+read -r WITH_JENKINS
 
+# Script to setup an AOSP Build environment on Ubuntu and Linux Mint
 LATEST_MAKE_VERSION="4.3"
 UBUNTU_16_PACKAGES="libesd0-dev"
 UBUNTU_20_PACKAGES="libncurses5 curl python-is-python3"
@@ -62,6 +64,14 @@ sudo DEBIAN_FRONTEND=noninteractive \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
     libxml-simple-perl apt-utils gh jenkins dwarves \
     ${PACKAGES} -y
+
+if [[ ${WITH_JENKINS} =~ "y" ]];
+then
+    echo "* Installing Jenkins according to user input"
+    sudo apt install jenkins -y
+else
+    echo "* Skipping Jenkins installation according to user input"
+fi
 
 echo -e "Setting up udev rules for adb!"
 sudo curl --create-dirs -L -o /etc/udev/rules.d/51-android.rules -O -L https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
