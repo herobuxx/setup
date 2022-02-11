@@ -60,7 +60,7 @@ sudo DEBIAN_FRONTEND=noninteractive \
     maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
     pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
-    libxml-simple-perl apt-utils gh jenkins \
+    libxml-simple-perl apt-utils gh jenkins dwarves \
     ${PACKAGES} -y
 
 echo -e "Setting up udev rules for adb!"
