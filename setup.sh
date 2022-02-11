@@ -4,15 +4,12 @@
 # Copyright (C) 2018 Akhil Narang
 # SPDX-License-Identifier: GPL-3.0-only
 
-echo -e "* Install Jenkins? [y/n]"
-read -r WITH_JENKINS
-
 # Script to setup an AOSP Build environment on Ubuntu and Linux Mint
 LATEST_MAKE_VERSION="4.3"
 UBUNTU_16_PACKAGES="libesd0-dev"
-UBUNTU_20_PACKAGES="libncurses5 curl python-is-python3"
-DEBIAN_10_PACKAGES="libncurses5 curl"
-DEBIAN_11_PACKAGES="libncurses5 curl"
+UBUNTU_20_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3"
+DEBIAN_10_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
+DEBIAN_11_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 PACKAGES=""
 
 # Install curl and GNUPG first
@@ -62,10 +59,14 @@ sudo DEBIAN_FRONTEND=noninteractive \
     maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
     pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
-    libxml-simple-perl apt-utils gh jenkins dwarves \
+    libxml-simple-perl apt-utils gh jenkins dwarves dialog \
     ${PACKAGES} -y
 
-if [[ ${WITH_JENKINS} =~ "y" ]];
+# Ask if user want to install jenkins
+dialog --title "Package Setup" --yesno "Do you want to Install Jenkins?" 0 0
+
+WITH_JENKINS=$?
+if [[ ${WITH_JENKINS} =~ "0" ]];
 then
     echo "* Installing Jenkins according to user input"
     sudo apt install jenkins -y
