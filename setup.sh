@@ -88,6 +88,12 @@ if [[ "$(command -v make)" ]]; then
     fi
 fi
 
+echo "Installing Akebi"
+git clone https://github.com/herobuxx/akebi
+cd akebi
+sudo make
+sudo make install
+
 echo "Installing repo"
 sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 sudo chmod a+rx /usr/local/bin/repo
