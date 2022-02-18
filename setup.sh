@@ -59,7 +59,7 @@ sudo DEBIAN_FRONTEND=noninteractive \
     maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
     pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
-    libxml-simple-perl apt-utils gh jenkins dwarves dialog \
+    libxml-simple-perl apt-utils gh jenkins dwarves dialog x11-xserver-utils dnsutils \
     ${PACKAGES} -y
 
 # Ask if user want to install jenkins
