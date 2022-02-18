@@ -13,12 +13,12 @@ DEBIAN_11_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 PACKAGES=""
 
 # Install curl and GNUPG first
-echo "Installing curl and GNUPG"
+echo "[+] Installing curl and GNUPG"
 sudo apt update
 sudo apt install curl gnupg1 gnupg2 -y
 
 # Prepare for Jenkins installation
-echo "Adding Jenkins apt key and repository!"
+echo "[+] Adding Jenkins apt key and repository!"
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 
@@ -26,7 +26,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-echo "Adding GitHub apt key and repository!"
+echo "[+] Adding GitHub apt key and repository!"
 sudo apt install software-properties-common -y
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
 sudo apt-add-repository https://cli.github.com/packages
@@ -68,13 +68,13 @@ dialog --title "Package Setup" --yesno "Do you want to Install Jenkins?" 0 0
 WITH_JENKINS=$?
 if [[ ${WITH_JENKINS} =~ "0" ]];
 then
-    echo "* Installing Jenkins according to user input"
+    echo "[+] Installing Jenkins according to user input"
     sudo apt install jenkins -y
 else
-    echo "* Skipping Jenkins installation according to user input"
+    echo "[+] Skipping Jenkins installation according to user input"
 fi
 
-echo -e "Setting up udev rules for adb!"
+echo -e "[+] Setting up udev rules for adb!"
 sudo curl --create-dirs -L -o /etc/udev/rules.d/51-android.rules -O -L https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
 sudo chmod 644 /etc/udev/rules.d/51-android.rules
 sudo chown root /etc/udev/rules.d/51-android.rules
@@ -83,17 +83,19 @@ sudo systemctl restart udev
 if [[ "$(command -v make)" ]]; then
     makeversion="$(make -v | head -1 | awk '{print $3}')"
     if [[ ${makeversion} != "${LATEST_MAKE_VERSION}" ]]; then
-        echo "Installing make ${LATEST_MAKE_VERSION} instead of ${makeversion}"
+        echo "[+] Installing make ${LATEST_MAKE_VERSION} instead of ${makeversion}"
         bash "$(dirname "$0")"/make.sh "${LATEST_MAKE_VERSION}"
     fi
 fi
 
-echo "Installing Akebi"
+echo "[+] Installing Akebi"
 git clone https://github.com/herobuxx/akebi
 cd akebi
 sudo make
 sudo make install
 
-echo "Installing repo"
+echo "[+] Installing repo"
 sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 sudo chmod a+rx /usr/local/bin/repo
+
+echo "[DONE] Setup finnished"
