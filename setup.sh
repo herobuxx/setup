@@ -11,6 +11,7 @@ UBUNTU_20_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-
 DEBIAN_10_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 DEBIAN_11_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 PACKAGES=""
+EXTRA_PACKAGES=${1}
 
 # Install curl and GNUPG first
 echo "[+] Installing curl and GNUPG"
@@ -60,19 +61,8 @@ sudo DEBIAN_FRONTEND=noninteractive \
     pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
     libxml-simple-perl apt-utils gh jenkins dwarves dialog x11-xserver-utils dnsutils lld \
-    ${PACKAGES} -y
+    ${PACKAGES} ${EXTRA_PACKAGES} -y
 
-# Ask if user want to install jenkins
-dialog --title "Package Setup" --yesno "Do you want to Install Jenkins?" 0 0
-
-WITH_JENKINS=$?
-if [[ ${WITH_JENKINS} =~ "0" ]];
-then
-    echo "[+] Installing Jenkins according to user input"
-    sudo apt install jenkins -y
-else
-    echo "[+] Skipping Jenkins installation according to user input"
-fi
 
 echo -e "[+] Setting up udev rules for adb!"
 sudo curl --create-dirs -L -o /etc/udev/rules.d/51-android.rules -O -L https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
