@@ -1,12 +1,26 @@
 # Setup script
 
-Kanged [Akhilnarang's Script](https://github.com/akhilnarang/scripts/) that i use to prepare AOSP Building server
+Kanged [Akhilnarang's Script](https://github.com/akhilnarang/scripts/) to prepare a fresh Debian/Ubuntu Server for AOSP Building and some other purposes.
 
-## How to use
+## Usage
+To use this script, first you will have to install git. This is required to clone the script itself to your server.
 ```
 $ sudo apt update
 $ sudo apt install git
+```
+
+Then, clone this script using git.
+```
 $ git clone https://github.com/herobuxx/setup
+```
+
+To prepare the server manually, you can enter setup directory and call the setup script. It will install required packages and prepare required udev rules.
+```
 $ cd setup
 $ bash setup.sh
+```
+
+If you need to compile and install glibc, just cal specfic script for glibc.
+```
+bash glibc.sh
 ```
