@@ -8,6 +8,15 @@ echo "Please enter your Git E-Mail"
 read -r gitmail
 git config --global user.email ${gitmail}
 
+echo "Remember your Git Password? [y/n]"
+read -r gitstore
+if [[ "${gitstore}" == "y" ]];
+then
+    git config --global credential.helper store
+else
+  echo "Skipping this step"
+fi
+
 echo "Did you want to setup GPG Keys for signing commits? [y/n]"
 read -r setgpg
 if [[ "${setgpg}" == "y" ]];
