@@ -33,10 +33,10 @@ elif [[ ${LSB_RELEASE} =~ "Debian GNU/Linux 11" ]]; then
     PACKAGES="${DEBIAN_11_PACKAGES}"
 fi
 
-echo "[+] Adding GitHub apt key and repository!"
-sudo apt install software-properties-common -y
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-sudo apt-add-repository https://cli.github.com/packages
+#echo "[+] Adding GitHub apt key and repository!"
+#sudo apt install software-properties-common -y
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+#sudo apt-add-repository https://cli.github.com/packages
 
 sudo apt update
 
@@ -51,7 +51,7 @@ sudo DEBIAN_FRONTEND=noninteractive \
     maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
     pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
-    libxml-simple-perl apt-utils gh dwarves dialog x11-xserver-utils dnsutils lld libelf-dev jq \
+    libxml-simple-perl apt-utils dwarves dialog x11-xserver-utils dnsutils lld libelf-dev jq \
     ${PACKAGES} ${EXTRA_PACKAGES} -y
 
 
