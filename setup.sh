@@ -51,7 +51,7 @@ sudo DEBIAN_FRONTEND=noninteractive \
     maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
     pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
-    libxml-simple-perl apt-utils dwarves dialog x11-xserver-utils dnsutils lld libelf-dev jq \
+    libxml-simple-perl apt-utils dwarves dialog x11-xserver-utils dnsutils lld libelf-dev jq axel \
     ${PACKAGES} ${EXTRA_PACKAGES} -y
 
 
