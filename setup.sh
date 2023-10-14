@@ -8,6 +8,7 @@
 LATEST_MAKE_VERSION="4.3"
 UBUNTU_16_PACKAGES="libesd0-dev"
 UBUNTU_20_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3"
+UBUNTU_22_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3"
 DEBIAN_10_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 DEBIAN_11_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 PACKAGES=""
@@ -27,6 +28,8 @@ if [[ ${LSB_RELEASE} =~ "Mint 18" || ${LSB_RELEASE} =~ "Ubuntu 16" ]]; then
     PACKAGES="${UBUNTU_16_PACKAGES}"
 elif [[ ${LSB_RELEASE} =~ "Ubuntu 20" || ${LSB_RELEASE} =~ "Ubuntu 21" ]]; then
     PACKAGES="${UBUNTU_20_PACKAGES}"
+elif [[ ${LSB_RELEASE} =~ "Ubuntu 22" || ${LSB_RELEASE} =~ "Ubuntu 23" ]]; then
+    PACKAGES="${UBUNTU_22_PACKAGES}"
 elif [[ ${LSB_RELEASE} =~ "Debian GNU/Linux 10" ]]; then
     PACKAGES="${DEBIAN_10_PACKAGES}"
 elif [[ ${LSB_RELEASE} =~ "Debian GNU/Linux 11" ]]; then
