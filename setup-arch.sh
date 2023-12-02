@@ -29,10 +29,13 @@ done
 echo '[4/5] Installing adb convenience tools'
 sudo pacman -S --noconfirm --needed android-tools android-udev
 
+# Install essential tools
+
 # Install adb and associated udev rules
 echo '[5/5] Installing AUR Package manager (yay)'
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+yay -S postman-bin visual-studio-code-bin
 
 echo '[DONE] Setup completed'
