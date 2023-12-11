@@ -36,6 +36,6 @@ echo '[5/5] Installing AUR Package manager (yay)'
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-yay -S postman-bin visual-studio-code-bin
+yay -S postman-bin visual-studio-code-bin plank chromium google-chrome jetbrains-toolbox
 
 echo '[DONE] Setup completed'
