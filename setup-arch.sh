@@ -32,10 +32,16 @@ sudo pacman -S --noconfirm --needed android-tools android-udev
 # Install essential tools
 
 # Install adb and associated udev rules
-echo '[5/5] Installing AUR Package manager (yay)'
+echo '[5/5] Installing IDE from AUR'
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+yay --save --nocleanmenu --nodiffmenu
 yay -S postman-bin visual-studio-code-bin plank chromium google-chrome jetbrains-toolbox
+
+# Install adb and associated udev rules
+echo '[6/6] Installing personal packages...)'
+sudo pacman -S discord telegram-desktop --noconfirm
+yay -S spotify-edge
 
 echo '[DONE] Setup completed'
