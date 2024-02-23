@@ -82,4 +82,4 @@ echo "[+] Installing repo"
 sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 sudo chmod a+rx /usr/local/bin/repo
 
-echo "[DONE] Setup finnished"
+echo "[DONE] Setup finished"
