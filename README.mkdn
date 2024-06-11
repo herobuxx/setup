@@ -1,21 +1,25 @@
 # Setup script
 
-Kanged [Akhilnarang's Script](https://github.com/akhilnarang/scripts/) to prepare a fresh Debian/Ubuntu Server for AOSP Building and some other purposes.
+A personalized script to streamline the configuration process for my Personal Linux machine and Building/CI server.
 
 ## Usage
-To use this script, first you will have to install git. This is required to clone the script itself to your server.
+
+### Ubuntu (For AOSP Building)
 ```
-$ sudo apt update
-$ sudo apt install git
+bash setup,sh
 ```
 
-Then, clone this script using git.
+This command will execute the setup script optimized for AOSP building on Ubuntu. It installs all the necessary dependencies and configurations to facilitate smooth AOSP compilation.
+
+### Ubuntu (Docker + GitLab Runner)
 ```
-$ git clone https://github.com/herobuxx/setup
+bash setup-ci,sh
 ```
 
-To prepare the server manually, you can enter setup directory and call the setup script. It will install required packages and prepare required udev rules.
+Use this command to set up Docker along with GitLab Runner on Ubuntu.
+
+### ArchLinux
 ```
-$ cd setup
-$ bash setup.sh
+bash setup-arch,sh
 ```
+This script is heavily personalized to install my frequently used packages.
