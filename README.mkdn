@@ -23,3 +23,6 @@ Use this command to set up Docker along with GitLab Runner on Ubuntu.
 bash setup-arch,sh
 ```
 This script is heavily personalized to install my frequently used packages.
+
+## Important Notes
+- For building AOSP, it is not recommended to use Ubutnu 24.04 for the time being. New updates on AppArmor restricts unprivileged proccess to create sandbox. in this case, nsjail.
