@@ -9,7 +9,7 @@ LATEST_MAKE_VERSION="4.3"
 UBUNTU_16_PACKAGES="libesd0-dev"
 UBUNTU_20_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3"
 UBUNTU_22_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3"
-UBUNTU_24_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3 zip unzip openjdk-17-jdk"
+UBUNTU_24_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl python-is-python3 zip unzip openjdk-17-jdk python3-full"
 DEBIAN_10_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 DEBIAN_11_PACKAGES="libncurses5 libncurses5-dev libncursesw5-dev curl"
 PACKAGES=""
@@ -55,7 +55,7 @@ sudo DEBIAN_FRONTEND=noninteractive \
     libexpat1-dev libgmp-dev '^liblz4-.*' '^liblzma.*' libmpc-dev libmpfr-dev libncurses5-dev \
     libsdl1.2-dev libssl-dev libtool libxml2 libxml2-utils '^lzma.*' lzop \
     maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
-    pngquant python2.7 python-all-dev python3-full re2c schedtool squashfs-tools subversion \
+    pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
     texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
     libxml-simple-perl apt-utils dwarves dialog x11-xserver-utils dnsutils lld libelf-dev jq axel xmlstarlet \
     ${PACKAGES} ${EXTRA_PACKAGES} -y
