@@ -85,4 +85,11 @@ echo "[+] Installing repo"
 sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 sudo chmod a+rx /usr/local/bin/repo
 
+echo "[+] Installing apktool"
+wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
+wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.10.0.jar
+chmod +x apktool
+mv apktool* /usr/bin/
+rm apktool*
+
 echo "[DONE] Setup finished"
