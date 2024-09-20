@@ -85,9 +85,17 @@ echo "[+] Installing repo"
 sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 sudo chmod a+rx /usr/local/bin/repo
 
+# Import SSH Keys
+export APKTOOL_VERSION=
+echo "[?] apktool verion to install - Default: 2.10.0"
+read -r IMPORT_SSH
+if [[ "${APKTOOL_VERSION}" == "" ]]; then
+    APKTOOL_VERSION=2.10.0
+fi
+
 echo "[+] Installing apktool"
 wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
-wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.10.0.jar
+wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_${APKTOOL_VERSION}.jar
 chmod +x apktool
 mv apktool* /usr/bin/
 rm apktool*
