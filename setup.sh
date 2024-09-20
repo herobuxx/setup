@@ -92,4 +92,7 @@ chmod +x apktool
 mv apktool* /usr/bin/
 rm apktool*
 
+echo "[+] Show apktool version"
+apktool --version
+
 echo "[DONE] Setup finished"
