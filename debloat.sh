@@ -22,7 +22,6 @@ packages=(
     gnome-color-manager
     gnome-dictionary
     gnome-disk-utility
-    gnome-font-viewer
     gnome-games
     gnome-icon-theme
     gnome-initial-setup
@@ -52,38 +51,8 @@ packages=(
     gnome-video-effects
     gnome-weather
     gnome-2048
-    gnome-accessibility-themes
-    gnome-bluetooth-sendto
     gnome-browser-connector
-    gnome-control-center
-    gnome-font-viewer
     gnome-contacts
-    gnome-disk-utility
-    gnome-keyring
-    gnome-keyring-pkcs11
-    gnome-klotski
-    gnome-logs
-    gnome-maps
-    gnome-menus
-    gnome-mines
-    gnome-music
-    gnome-nibbles
-    gnome-online-accounts
-    gnome-photos
-    gnome-recipes
-    gnome-reversi
-    gnome-sound-recorder
-    gnome-software
-    gnome-software-common
-    gnome-system-monitor
-    gnome-taquin
-    gnome-tetravex
-    gnome-tour
-    gnome-user-docs
-    gnome-user-share
-    gnome-video-effects
-    gnome-weather
-    gnome-games
     modem-manager-gui
     malcontent
     mpv
