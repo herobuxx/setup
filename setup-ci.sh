@@ -51,7 +51,7 @@ main() {
     setup_docker_network
 
     echo " "
-    eCHO "[DONE] Setup Finished!"
+    echo "[DONE] Setup Finished!"
     echo " "
 }
 
