@@ -2,38 +2,41 @@
 
 packages=(
     accerciser
-    avahi
     celluloid
+    cheese
     devhelp
+    endeavour
     epiphany
     evolution
-    evolution-data-server
     five-or-more
     flite
     four-in-a-row
     geary
+    ghex
     gnome-backgrounds
+    gnome-boxes
     gnome-builder
     gnome-calculator
     gnome-calendar
     gnome-characters
     gnome-chess
     gnome-clocks
-    gnome-color-manager
+    gnome-connections
+    gnome-devel-docs
     gnome-dictionary
     gnome-disk-utility
     gnome-games
     gnome-initial-setup
-    gnome-keyring
     gnome-keyring-pkcs11:amd64
     gnome-klotski
     gnome-logs
+    gnome-mahjongg
     gnome-maps
     gnome-menus
     gnome-mines
+    gnome-multi-writer
     gnome-music
     gnome-nibbles
-    gnome-online-accounts
     gnome-photos
     gnome-recipes
     gnome-reversi
@@ -42,7 +45,9 @@ packages=(
     gnome-software
     gnome-software-common
     gnome-system-monitor
+    gnome-sudoku
     gnome-taquin
+    gnome-text-editor
     gnome-tetravex
     gnome-tour
     gnome-user-docs
@@ -52,13 +57,19 @@ packages=(
     gnome-2048
     gnome-browser-connector
     gnome-contacts
+    hitori
+    lagno
+    lightsoff
     modem-manager-gui
     malcontent
     mpv
     polari
+    quadrapassel
+    simple-scan
     swell-foop
-    yelp
+    tali
     yelp-xsl
+    yelp
 )
 
 for pkg in "${packages[@]}"; do
