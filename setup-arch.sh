@@ -44,4 +44,14 @@ sudo pacman -S discord telegram-desktop --noconfirm
 # Install Go
 sudo pacman -S --noconfirm go
 
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source "$HOME/.cargo/env"
+
+# Add Rust environment setup to .bashrc
+if ! grep -q 'source "$HOME/.cargo/env"' "$HOME/.bashrc"; then
+    echo 'source "$HOME/.cargo/env"' >> "$HOME/.bashrc"
+    echo "Rust environment setup added to .bashrc"
+fi
+
 echo '[DONE] Setup completed'
