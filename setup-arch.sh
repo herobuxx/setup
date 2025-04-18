@@ -30,8 +30,6 @@ echo '[4/5] Installing adb convenience tools'
 sudo pacman -S --noconfirm --needed android-tools android-udev
 
 # Install essential tools
-
-# Install adb and associated udev rules
 echo '[5/5] Installing IDE from AUR'
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -42,5 +40,8 @@ yay -S postman-bin visual-studio-code-bin chromium google-chrome jetbrains-toolb
 # Install adb and associated udev rules
 echo '[6/6] Installing personal packages...)'
 sudo pacman -S discord telegram-desktop --noconfirm
+
+# Install Go
+sudo pacman -S --noconfirm go
 
 echo '[DONE] Setup completed'
