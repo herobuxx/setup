@@ -23,7 +23,6 @@ packages=(
     gnome-dictionary
     gnome-disk-utility
     gnome-games
-    gnome-icon-theme
     gnome-initial-setup
     gnome-keyring
     gnome-keyring-pkcs11:amd64
