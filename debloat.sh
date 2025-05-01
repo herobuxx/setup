@@ -27,7 +27,7 @@ packages=(
     gnome-disk-utility
     gnome-games
     gnome-initial-setup
-    gnome-keyring-pkcs11:amd64
+    gnome-keyring-pkcs11
     gnome-klotski
     gnome-logs
     gnome-mahjongg
@@ -65,6 +65,7 @@ packages=(
     mpv
     polari
     quadrapassel
+    rhythmbox
     simple-scan
     swell-foop
     tali
@@ -72,10 +73,37 @@ packages=(
     yelp
 )
 
-for pkg in "${packages[@]}"; do
-    if pacman -Q "$pkg" &>/dev/null; then
-        sudo pacman -Rns --noconfirm "$pkg" && echo "$pkg removed"
-    else
-        echo "$pkg not installed, skipping."
-    fi
-done
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    distro=$ID
+else
+    echo "Unable to detect Linux distribution."
+    exit 1
+fi
+
+case "$distro" in
+    arch|manjaro)
+        echo "Detected Arch-based system."
+        for pkg in "${packages[@]}"; do
+            if pacman -Q "$pkg" &>/dev/null; then
+                sudo pacman -Rns --noconfirm "$pkg" && echo "$pkg removed"
+            else
+                echo "$pkg not installed, skipping."
+            fi
+        done
+        ;;
+    fedora)
+        echo "Detected Fedora system."
+        for pkg in "${packages[@]}"; do
+            if rpm -q "$pkg" &>/dev/null; then
+                sudo dnf remove -y "$pkg" && echo "$pkg removed"
+            else
+                echo "$pkg not installed, skipping."
+            fi
+        done
+        ;;
+    *)
+        echo "Unsupported distribution: $distro"
+        exit 1
+        ;;
+esac
