@@ -35,7 +35,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 yay --save --nocleanmenu --nodiffmenu
-yay -S postman-bin visual-studio-code-bin chromium google-chrome jetbrains-toolbox
+yay -S postman-bin visual-studio-code-bin chromium google-chrome jetbrains-toolbox mongodb-compass
 
 # Install adb and associated udev rules
 echo '[6/6] Installing personal packages...)'
