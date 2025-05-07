@@ -44,6 +44,9 @@ sudo pacman -S discord telegram-desktop --noconfirm
 # Install Go
 sudo pacman -S --noconfirm go
 
+# Tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env"
