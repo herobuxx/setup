@@ -13,7 +13,6 @@ packages=(
     four-in-a-row
     geary
     ghex
-    gnome-backgrounds
     gnome-boxes
     gnome-builder
     gnome-calculator
@@ -71,7 +70,17 @@ packages=(
     tali
     yelp-xsl
     yelp
+
+    # Ubuntu bloatware packages
+    thunderbird
+    shotwell
+    totem
+    remmina
+    aisleriot
+    libreoffice-common
+    libreoffice-core
 )
+
 
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -101,6 +110,17 @@ case "$distro" in
                 echo "$pkg not installed, skipping."
             fi
         done
+        ;;
+    ubuntu|debian)
+        echo "Detected Debian/Ubuntu-based system."
+        for pkg in "${packages[@]}"; do
+            if dpkg -s "$pkg" &>/dev/null; then
+                sudo apt remove -y "$pkg" && echo "$pkg removed"
+            else
+                echo "$pkg not installed, skipping."
+            fi
+        done
+        sudo apt autoremove -y
         ;;
     *)
         echo "Unsupported distribution: $distro"
